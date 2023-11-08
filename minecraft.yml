@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+    minecraft-bedrock-server:
+        image: itzg/minecraft-bedrock-server
+        container_name: minecraft
+        tty: true
+        stdin_open: true
+        ports:
+            - '8089:80'
+            - '19132:19132/udp'
+        volumes:
+            - '/var/run/docker.sock:/tmp/docker.sock:ro'
+            - '/automation/docker/minecraft/config:/data'
+        restart: unless-stopped
+        logging:
+            options:
+                max-size: 1g
+        environment:
+
+            - EULA=TRUE
+            - DEFAULT_PLAYER_PERMISSION_LEVEL=operator
+            - SERVER_NAME=Pink Unicorn
+            - GAMEMODE=creative
+        networks:
+          - dockernet
