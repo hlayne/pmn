@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+
+    command:
+      - tunnel
+      - --no-autoupdate
+      - run
+      - --token
+      - eyJhIjoiN2IzYzQ2MmZjMmE0Y2Q0NzcxMWQ1Mjk0ZTJiYTA1MWQiLCJ0IjoiYzFkODM0MGYtMWIxMi00ZTVmLWE4YTktNDJlOWFhZGMzZDcxIiwicyI6Ik9EVTNNemsyTXpJdFpUSXlZUzAwWXpFeUxXRTRNVEl0TVRkbVlXRXlOek5pWm1JeCJ9
+    networks:
+      - dockernet
+networks:
+  dockernet: 
+     external: true
