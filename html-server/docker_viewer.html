@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker Container Viewer</title>
+</head>
+<body>
+    <h1>Docker Container Viewer</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Container ID</th>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Ports</th>
+            </tr>
+        </thead>
+        <tbody id="containerList">
+        </tbody>
+    </table>
+
+    <script>
+        function getContainers() {
+            fetch('/containers')
+                .then(response => response.json())
+                .then(data => {
+                    const containerList = document.getElementById('containerList');
+                    containerList.innerHTML = '';
+
+                    data.forEach(container => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${container.Id}</td>
+                            <td>${container.Names[0]}</td>
+                            <td>${container.State}</td>
+                            <td>${container.Ports.map(port => `${port.PrivatePort}:${port.PublicPort}`).join(', ')}</td>
+                        `;
+                        containerList.appendChild(row);
+                    });
+                })
+                .catch(error => console.error(error));
+        }
+
+        getContainers();
+    </script>
+</body>
+</html>
