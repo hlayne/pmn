@@ -3,13 +3,19 @@ services:
     container_name: peppermint_postgres
     image: postgres:latest
     restart: always
+    ports:
+      - 5432:5432
     volumes:
       - /automation/docker/peppermint/pgdata:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: peppermint
       POSTGRES_PASSWORD: 1234
       POSTGRES_DB: peppermint
- 
+    networks: 
+      - dockernet
+networks: 
+  dockernet: 
+    external: true 
   peppermint:
     container_name: peppermint
     image: pepperlabs/peppermint:latest
