@@ -32,6 +32,8 @@ services:
       DB_HOST: "peppermint_postgres"
       SECRET: 'peppermint4life'
       API_URL: "http://server-ip:5003"
- 
-volumes:
- pgdata:
+    networks: 
+      - dockernet
+networks: 
+  dockernet: 
+    external: true 
