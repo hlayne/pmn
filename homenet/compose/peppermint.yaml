@@ -13,9 +13,7 @@ services:
       POSTGRES_DB: peppermint
     networks: 
       - dockernet
-networks: 
-  dockernet: 
-    external: true 
+      
   peppermint:
     container_name: peppermint
     image: pepperlabs/peppermint:latest
