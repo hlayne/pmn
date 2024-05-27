@@ -1,6 +1,6 @@
 services:
   db:
-  container_name: uvdesk-mysql
+    container_name: uvdesk-mysql
     image: mysql:5.7
     volumes:
       - /automation/docker/uvdesk/uvdeskdb:/var/lib/mysql
@@ -11,7 +11,7 @@ services:
       MYSQL_USER: uvdesk
       MYSQL_PASSWORD: perdidohoy
   uvdesk:
-  container_name: uvdesk
+    container_name: uvdesk
     image: nuttcorp/uvdesk:latest
     depends_on:
       - db
@@ -23,3 +23,8 @@ services:
         MYSQL_DATABASE: uvdesk
     ports:
         - 6744:80
+    networks: 
+      - dockernet
+networks: 
+  dockernet: 
+    external: true
