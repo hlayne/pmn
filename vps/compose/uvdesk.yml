@@ -10,6 +10,8 @@ services:
       MYSQL_ROOT_PASSWORD: perdidohoy
       MYSQL_USER: uvdesk
       MYSQL_PASSWORD: perdidohoy
+    networks: 
+      - dockernet
   uvdesk:
     container_name: uvdesk
     image: nuttcorp/uvdesk:latest
@@ -21,7 +23,6 @@ services:
         MYSQL_PASSWORD: perdidohoy
         MYSQL_ROOT_PASSWORD: perdidohoy
         MYSQL_DATABASE: uvdesk
-        DB_HOST: "uvdesk-mysql"
     ports:
         - 6744:80
     networks: 
