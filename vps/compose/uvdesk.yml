@@ -21,6 +21,7 @@ services:
         MYSQL_PASSWORD: perdidohoy
         MYSQL_ROOT_PASSWORD: perdidohoy
         MYSQL_DATABASE: uvdesk
+        DB_HOST: "uvdesk-mysql"
     ports:
         - 6744:80
     networks: 
