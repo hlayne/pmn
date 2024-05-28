@@ -1,0 +1,16 @@
+services:
+  homepage:
+    image: ghcr.io/benphelps/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+    ports:
+      - 4000:3000
+    volumes:
+      - /automation/docker/homepage/config:/app/config # Make sure your local config directory exists
+      - /var/run/docker.sock:/var/run/docker.sock:ro # (optional) For docker integrations
+      - /automation/docker/homepage/icons:/app/public/icons
+    networks: 
+      - dockernet
+networks: 
+  dockernet: 
+    external: true
