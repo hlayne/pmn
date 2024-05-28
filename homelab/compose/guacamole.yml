@@ -1,0 +1,14 @@
+services:
+  guacamole:
+    image: abesnier/guacamole:latest
+    container_name: guacamole
+    restart: unless-stopped
+    volumes:
+      - /automation/docker/guacamole/data:/config
+    ports:
+      - 8080:8080
+    networks: 
+      - dockernet
+networks: 
+  dockernet: 
+    external: true
