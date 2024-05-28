@@ -12,6 +12,12 @@ services:
     ports:  
       - 127.0.0.1:7443:8443 
       - 127.0.0.1:8089:8080 
+    labels:
+      - homepage.group=HOMELAB
+      - homepage.name=Zabbix
+      - homepage.icon=zabbix.png
+      - homepage.href=http://homelab-zabbix.laynesystems.com/
+      - homepage.description=Network Monitoring
     networks: 
       - dockernet 
 networks:  
