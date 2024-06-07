@@ -1,7 +1,7 @@
 services:
   glances:
     container_name: glances
-    image: joweisberg/glances:latest
+    image: hlayne/glances:1.0
     restart: unless-stopped
     pid: host
     ports:
