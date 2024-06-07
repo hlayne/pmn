@@ -13,6 +13,12 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /automation/docker/glances/data:/glances/conf
+    labels:
+      - homepage.group=CPLAB
+      - homepage.name=Glances
+      - homepage.icon=glances.png
+      - homepage.href=http://cplab-glances.laynesystems.com/
+      - homepage.description=Server Performance
     networks: 
       - dockernet
 networks: 
