@@ -1,7 +1,7 @@
 services:
   glances:
     container_name: glances
-    image: nicolargo/glances: 3.4.0.5
+    image: nicolargo/glances:3.4.0.5
     restart: unless-stopped
     pid: host
     ports:
