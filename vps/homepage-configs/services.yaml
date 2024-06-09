@@ -1,0 +1,737 @@
+- VPS:
+
+    - CPU Usage: 
+        widget:
+          type: glances
+          url: https://vps-glances.laynesystems.com 
+          version: 4
+          metric: cpu
+          chart: true
+    - Memory Usage: 
+        widget: 
+          type: glances 
+          url: https://vps-glances.laynesystems.com 
+          metric: memory
+          chart: true
+    - Network Usage:
+       widget:
+         type: glances 
+         url: https://vps-glances.laynesystems.com 
+         metric: network:eth0 
+         chart: true
+
+
+    - Portainer:
+        icon: portainer.png
+        href: https://vps-portainer.laynesystems.com
+        description: Docker Management
+        container: portainer
+        widget:
+          type: portainer
+          url: https://vps-portainer.laynesystems.com
+          env: 2
+          key: ptr_xB8qVPLFhpMiip6Mg/WK42/aZ22f7Q2l0xBVeop/BuA=
+        server: my-docker
+
+    - Cloudflare:
+        icon: cloudflare-zero-trust.png
+        href: https://dash.cloudflare.com/7b3c462fc2a4cd47711d5294e2ba051d/laynesystems.com
+        description: Tunnel To VPS
+        widget:
+          type: cloudflared
+          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+          tunnelid: e1b1ee34-54d0-41bd-9626-e01f042ef483 # found in tunnels dashboard under the tunnel name
+          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+        server: my-docker
+        container: cloudflared
+
+    - UPTIME-KUMA:
+        icon: uptime-kuma.png
+        href: https://vps-uptime.laynesystems.com
+        description: Server Monitoring
+        widget:
+          type: uptimekuma
+          url: https://vps-uptime.laynesystems.com
+          slug: vps-status
+        server: my-docker
+        container: uptime-kuma
+    - SSH-TO-VPS:
+        icon: putty.png
+        href: https://vps-ssh.laynesystems.com
+        description: SSH INTO VPS SERVER
+        server: my-docker
+        container: putty
+
+    - Glances:
+        icon: glances.png
+        href: https://vps-glances.laynesystems.com
+        description: System Performance
+        server: my-docker
+        container: glances
+
+    - Firefox:
+        icon: firefox.png
+        href: https://vps-firefox.laynesystems.com
+        description: Web Browser
+        server: my-docker
+        container: firefox
+
+    - Remote-Desktop:
+        icon: guacamole.png
+        href: https://vps-guacamole.laynesystems.com
+        description: Remote Desktop Manager
+        server: my-docker
+        container: guacamole
+
+    - Ansible-Semaphore:
+        icon: ansible.png
+        href: https://vps-ansible.laynesystems.com
+        description: Automation
+
+
+
+- HOMENET:
+    - CPU Usage:
+        widget:
+          type: glances
+          url: https://homenet-glances.laynesystems.com
+          version: 4
+          metric: cpu
+          chart: true
+    - Memory Usage:
+        widget:
+          type: glances
+          url: https://homenet-glances.laynesystems.com
+          metric: memory
+          chart: true
+    - Network Usage:
+        widget:
+          type: glances
+          url: https://homenet-glances.laynesystems.com
+          metric: network:eth0
+          chart: true
+
+    - Portainer:
+        icon: portainer.png
+        href: https://homenet-portainer.laynesystems.com
+        description: Docker Management
+        container: portainer
+        widget:
+          type: portainer
+          url: https://homenet-portainer.laynesystems.com
+          env: 2
+          key: ptr_Z3Q2Bz8jQX2TlKjWO2qdNvksqtvnokaSZXqVl8sVVTE=
+#    - Speedtest:
+#        icon: librespeed.png
+#        href: https://homenet-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://homenet-speedtest.laynesystems.com
+
+    - Cloudflare:
+        icon: cloudflare-zero-trust.png
+        href: https://dash.cloudflare.com/7b3c462fc2a4cd47711d5294e2ba051d/laynesystems.com
+        description: Tunnel To VPS
+        widget:
+          type: cloudflared
+          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+          tunnelid: d9895934-eb69-42bc-ab51-c6ad1bfe7668 # found in tunnels dashboard under the tunnel name
+          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+
+    - UPTIME-KUMA:
+        icon: uptime-kuma.png
+        href: https://homenet-uptime.laynesystems.com
+        description: Server Monitoring
+        widget:
+          type: uptimekuma
+          url: https://homenet-uptime.laynesystems.com
+          slug: homenet-status
+    - Proxmox:
+        icon: proxmox.png
+        href: https://homenet-proxmox.laynesystems.com
+        description: Virtualization
+        widget:
+          type: proxmox
+          url: https://homenet-proxmox.laynesystems.com
+          username: api@pam!homepage
+          password: d3064401-9af0-4822-9a82-5e29e65fd99c
+    - NAS:
+        icon: synology.png
+        href: https://homenet-nas.laynesystems.com
+        description: Network Attached Storage
+        widget:
+          type: diskstation
+          url: https://homenet-nas.laynesystems.com
+          username: hlayne
+          password: atll0vesPBX
+         # volume: volume_N # optional
+    - Plex:
+        icon: plex.png
+        href: https://homenet-plex.laynesystems.com
+        description: Media Player
+        widget:
+          type: plex
+          url: https://homenet-plex.laynesystems.com
+          key: ZaxEBrbTPBSbysVmQ1W-
+    - HomeAssistant:
+        icon: home-assistant.png
+        href: https://homenet-hass.laynesystems.com
+        description: Home Automation
+    - Zabbix-HomeNet:
+        icon: zabbix.png
+        href: https://homenet-zabbix.laynesystems.com
+        description: Network Monitoring
+    - Router:
+        icon: edgeos-light.png
+        href: https://homenet-edgerouter.laynesystems.com
+        description: Home Router
+    - NAS-FILE:
+        icon: synology-filestation.png
+        href: https://homenet-nasfile.laynesystems.com
+        description: Synology File Station
+    - NAS-PHOTO:
+        icon: synology-photo-station.png
+        href: https://homenet-nasphotos.laynesystems.com
+        description: Synology Photos
+    - NAS-DOWNLOAD:
+        icon: synology-download-station.png
+        href: https://homenet-nasdownload.laynesystems.com
+        description: Synology Download Station
+    - NAS-BACKUP:
+        icon: urbackup.png
+        href: https://homenet-nasbackup.laynesystems.com
+        description: Active Backup for Business
+    - NAS-DRIVE:
+        icon: synology-drive.png
+        href: https://homenet-nasdrive.laynesystems.com
+        description: Synology Drive
+    - NAS-NOTE:
+        icon: synology-note-station.png
+        href: https://homenet-nasnote.laynesystems.com
+        description: Synology Note Station
+
+    - NAS-CONTACTS:
+        icon: synology-contacts.png
+        href: https://homenet-nascontacts.laynesystems.com
+        description: Synology Contacts
+    - Glances:
+        icon: glances.png
+        href: https://homenet-glances.laynesystems.com
+        description: System Performance
+    - SSH-TO-HOMENET:
+        icon: putty.png
+        href: https://homenet-ssh.laynesystems.com
+        description: SSH INTO HOMENET SERVER
+    - Guacamole:
+        icon: guacamole.png
+        href: https://homenet-rdp.laynesystems.com
+        description: Remote Desktop
+    - Putty:
+        icon: putty.png
+        href: https://homenet-putty.laynesystems.com
+        description: Session Client
+    - Ansible-Semaphore:
+        icon: ansible.png
+        href: https://homenet-ansible.laynesystems.com
+        description: Ansible Semaphore
+    - Graylog: 
+        icon: graylog.png 
+        href: https://homenet-graylog.laynesystems.com
+        description: Syslog Server
+
+- CASONA:
+    - CPU Usage:
+        widget:
+          type: glances
+          url: https://casona-glances.laynesystems.com
+          metric: cpu
+          chart: true
+    - Memory Usage:
+        widget:
+          type: glances
+          url: https://casona-glances.laynesystems.com
+          metric: memory
+          chart: true
+
+    - Network Usage:
+        widget:
+          type: glances
+          url: https://casona-glances.laynesystems.com
+          metric: network:eth0
+          chart: true
+    - Portainer:
+        icon: portainer.png
+        href: https://casona-portainer.laynesystems.com
+        description: Docker Management
+        container: portainer
+        widget:
+          type: portainer
+          url: https://casona-portainer.laynesystems.com
+          env: 2
+          key: ptr_ujhzr7MbOpz+/LVo4hp8vOT2jXHCGersPBsdKbBSMO8=
+
+    - Cloudflare:
+        icon: cloudflare-zero-trust.png
+        href: https://dash.cloudflare.com/7b3c462fc2a4cd47711d5294e2ba051d/laynesystems.com
+        description: Tunnel To Home-Network
+        widget:
+          type: cloudflared
+          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+          tunnelid: 987f25da-a7d8-4cdd-83e4-10eac4b80809 # found in tunnels dashboard under the tunnel name
+          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+
+
+- CPLAB:
+    - CPU Usage:
+       widget:
+         type: glances
+         url: https://cplab-glances.laynesystems.com
+         metric: cpu
+         chart: true
+
+    - Memory Usage:
+       widget:
+         type: glances
+         url: https://cplab-glances.laynesystems.com
+         metric: memory
+         chart: true
+
+    - Network Usage:
+        widget:
+          type: glances
+          url: https://cplab-glances.laynesystems.com
+          metric: network:eth0
+          chart: true
+
+    - Portainer:
+        icon: portainer.png
+        href: https://cplab-portainer.laynesystems.com
+        description: Docker Management
+        container: portainer
+        widget:
+          type: portainer
+          url: https://cplab-portainer.laynesystems.com
+          env: 2
+          key: ptr_b6Aj20M6bKPsEIWvowGyElAf5K3ri0JMuoFmIIFcYzA=
+
+    - Cloudflare:
+        icon: cloudflare-zero-trust.png
+        href: https://dash.cloudflare.com/7b3c462fc2a4cd47711d5294e2ba051d/laynesystems.com
+        description: Tunnel IP
+        widget:
+          type: cloudflared
+          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+          tunnelid: ba7194b3-2561-4973-81c4-4b4d3772a836 # found in tunnels dashboard under the tunnel name
+          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+    - UPTIME-KUMA:
+        icon: uptime-kuma.png
+        href: https://cplab-uptime.laynesystems.com
+        description: Server Monitoring
+        widget:
+          type: uptimekuma
+          url: https://cplab-uptime.laynesystems.com
+          slug: server-status
+    - Proxmox:
+        icon: proxmox.png
+        href: https://cplab-proxmox.laynesystems.com
+        description: Virtualization
+    - Remote-Desktop:
+        icon: guacamole.png
+        href: http://cplab-guacamole.laynesystems.com
+        description: Remote Desktop Manager
+    - Putty:
+        icon: putty.png
+        href: https://cplab-putty.laynesystems.com
+        description: Session Client
+    - Firefox:
+        icon: firefox.png
+        href: https://cplab-firefox.laynesystems.com
+        description: Web Browser
+    - Glances:
+        icon: glances.png
+        href: https://cplab-glances.laynesystems.com
+        description: Server Performance
+    - Ansible-Semaphore:
+        icon: ansible.png
+        href: https://cplab-ansible.laynesystems.com
+        description: Ansible semaphore
+    - Graylog: 
+        icon: graylog.png 
+        href: https://cplab-graylog.laynesystems.com
+        description: Systelog Server
+    - PFSENSE: 
+        icon: pfsense.png 
+        href: https://cplab-pfsense.laynesystems.com
+        description: Router & Firewall
+
+
+    
+
+- CTECH:
+    - CPU Usage:
+       widget:
+         type: glances
+         url: https://ctech-glances.laynesystems.com
+         metric: cpu
+         chart: true
+    - Memory Usage:
+        widget:
+          type: glances
+          url: https://ctech-glances.laynesystems.com
+          metric: memory
+          chart: true
+
+    - Network Usage: 
+        widget: 
+          type: glances 
+          url: https://vps-glances.laynesystems.com 
+          metric: network:eth0
+          chart: true
+
+    - Portainer:
+        icon: portainer.png
+        href: https://ctech-portainer.laynesystems.com
+        description: Docker Management
+        container: portainer
+        widget:
+          type: portainer
+          url: https://ctech-portainer.laynesystems.com
+          env: 2
+          key: ptr_iXbioNGyEiag8lTIWdvMDyn8erBAKYjULEkqHA7GKXw=
+    - Speedtest:
+        icon: librespeed.png
+        href: https://ctech-speedtest.laynesystems.com
+        description: Speedtest
+    - Cloudflare:
+        icon: cloudflare-zero-trust.png
+        href: https://ctech-glances.laynesystems.com
+        description: Tunnel To CTECH
+        widget:
+          type: cloudflared
+          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+          tunnelid: ac1b126d-cce8-4505-ac92-aef5ea46c5bf # found in tunnels dashboard under the tunnel name
+          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+    - Router:
+        icon: edgeos-light.png
+        href: https://ctech-opnsense.laynesystems.com
+        description: Main Router
+    - Proxmox:
+        icon: proxmox.png
+        href: https://ctech-proxmox.laynesystems.com
+        description: Virtualization
+        widget:
+          type: proxmox
+          url: https://174.77.169.242:8006
+          username: api@pam!homepage
+          password: e4b0b83d-736f-4952-9986-d6afb3222242
+    - MESHCENTRAL:
+        icon: meshcentral.png
+        href: https://vps-meshcentral.laynesystems.com
+        description: Win/Linux Remote Desktop
+
+    - Zabbix-CBMW:
+        icon: zabbix.png
+        href: https://ctech-zabbix-cbmw.laynesystems.com
+        description: Monitoring
+    - Glances:
+        icon: glances.png
+        href: https://ctech-glances.laynesystems.com
+        description: System Performance
+    - Firefox:
+        icon: firefox.png
+        href: https://ctech-firefox.laynesystems.com
+        description: Web Browser
+    - SSH-TO-CTECH-SERVER:
+        icon: putty.png
+        href: https://ctech-ssh.laynesystems.com
+        description: SSH TO CTECH SERVER
+    - Remote-Desktop-nomad:
+        icon: guacamole.png
+        href: https://homenet-rdp.laynesystems.com
+        description: Remote Desktop nomad
+    - Remote-Desktop-ctech:
+        icon: guacamole.png
+        href: https://ctech-rdp.laynesystems.com
+        description: Remote Desktop ctech
+    - Putty:
+        icon: putty.png
+        href: https://ctech-putty.laynesystems.com
+        description: Session Client
+    - CBMW-DG:
+        icon: pfsense.png
+        href: https://vpn-cbmw-dg.laynesystems.com/
+        description: CTECH CBMW DG
+    - Ansible-Semaphore: 
+        icon:  ansible.png 
+        href: https://ctech-ansible.laynesystems.com
+        description: Ansible Semaphore
+    - Graylog: 
+       icon: graylog.png 
+       href: https://ctech-graylog.laynesystems.com
+       description: Systelog Server
+- SERVARR:
+    - Portainer:
+        icon: portainer.png
+        href: https://servarr-portainer.laynesystems.com
+        description: Docker Management
+        widget:
+          type: portainer
+          url: https://servarr-portainer.laynesystems.com
+          env: 2
+          key: ptr_Ys3ZKbuZdOaTk9y3/u97KfTEZlZNf9Qe0uIaAHbhpc0=
+    - Cloudflare:
+        icon: cloudflare-zero-trust.png
+        href: https://dash.cloudflare.com/7b3c462fc2a4cd47711d5294e2ba051d/laynesystems.com
+        description: Tunnel To  SERVARR
+        widget:
+          type: cloudflared
+          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+          tunnelid: 303e3ff1-f2ae-4330-abeb-db0ddf0f45fc # found in tunnels dashboard under the tunnel name
+          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+    - Sonarr:
+        icon: sonarr.png
+        href: https://servarr-sonarr.laynesystems.com
+        description: TV Show downloader
+        widget:
+            type: sonarr
+            url: https://servarr-sonarr.laynesystems.com
+            key: 7bf2b011bf3847bca1cb5f7f6ac05585
+    - Radarr:
+        icon: radarr.png
+        href: https://servarr-radarr.laynesystems.com
+        description: Movie Downloader
+        widget:
+            type: radarr
+            url: https://servarr-radarr.laynesystems.com
+            key: b6d3f166278646b18ffd0010bb9d7e72
+    - Jackett:
+        icon: jackett.png
+        href: https://servarr-jackett.laynesystems.com
+        description: Torrent indexer
+        widget:
+            type: jackett
+            url: https://servarr-jackett.laynesystems.com
+            key:  f45jajzgjox5g7o0pegtzswu3lf0ojbx
+    - qBittorrent:
+         icon: qbittorrent.png
+         href: https://servarr-qbittorrent.laynesystems.com
+         description: Torrent Downloader
+         widget:
+             type: qbittorrent
+             url: https://servarr-qbittorrent.laynesystems.com
+    - Firefox:
+        icon: firefox.png
+        href: https://servarr-firefox.laynesystems.com
+        description: Web Browser
+#- FWA-TUNNELS:
+#    - FWASERVER:
+#        icon: cloudflare-zero-trust.png
+#        href: https://fwaserver-glances.laynesystems.com
+#        description: Tunnel To FWASERVER
+#        widget:
+#          type: cloudflared
+#          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+#          tunnelid: c8a2b884-d7ba-4085-92f0-d98a223d3599 # found in tunnels dashboard under the tunnel name
+#          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+#    - FWASUPPORT01:
+#        icon: cloudflare-zero-trust.png
+#        href: https://fwa01-glances.laynesystems.com
+#        description: Tunnel To FWASUPPORT01
+#        widget:
+#          type: cloudflared
+#          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+#          tunnelid: f376914d-c9aa-4ced-b54c-0a850301a010 # found in tunnels dashboard under the tunnel name
+#          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+#    - FWASUPPORT02:
+#        icon: cloudflare-zero-trust.png
+#        href: https://fwa02-glances.laynesystems.com
+#        description: Tunnel To FWASUPPORT02
+#        widget:
+#          type: cloudflared
+#          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+#          tunnelid: 8a0d61ce-8fb2-4b9a-b7e2-e4799a46267f # found in tunnels dashboard under the tunnel name
+#          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+#    - FWASUPPORT03:
+#        icon: cloudflare-zero-trust.png
+#        href: https://fwa03-glances.laynesystems.com
+#        description: Tunnel To FWASUPPORT03
+#        widget:
+#          type: cloudflared
+#          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+#          tunnelid: 62869281-5e00-4a01-bd7f-133111f53e93 # found in tunnels dashboard under the tunnel name
+#          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+#    - FWASUPPORT04:
+#        icon: cloudflare-zero-trust.png
+#        href: https://fwa04-glances.laynesystems.com
+#        description: Tunnel To FWASUPPORT04
+#        widget:
+#          type: cloudflared
+#          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+#          tunnelid: c1d8340f-1b12-4e5f-a8a9-42e9aadc3d71 # found in tunnels dashboard under the tunnel name
+#          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+#    - FWASUPPORT05:
+#        icon: cloudflare-zero-trust.png
+#        href: https://fwa05-glances.laynesystems.com
+#        description: Tunnel To FWASUPPORT05
+#        widget:
+#          type: cloudflared
+#          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+#          tunnelid: 318ce39c-7c3e-4a44-ae8b-70f82e2670d7 # found in tunnels dashboard under the tunnel name
+#          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+#    - FWASUPPORT06:
+#        icon: cloudflare-zero-trust.png
+#        href: https://fwa06-glances.laynesystems.com
+#        description: Tunnel To FWASUPPORT06
+#        widget:
+#          type: cloudflared
+#          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+#          tunnelid: bbd1abf9-a55b-49b4-837e-fd6fe6164491 # found in tunnels dashboard under the tunnel name
+#          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+#    - FWASUPPORT07:
+#        icon: cloudflare-zero-trust.png
+#        href: https://fwa07-glances.laynesystems.com
+#        description: Tunnel To FWASUPPORT07
+#        widget:
+#          type: cloudflared
+#          accountid: 7b3c462fc2a4cd47711d5294e2ba051d # from zero trust dashboard url e.g. https://one.dash.cloudflare.com/<accountid>/home/quick-start
+#          tunnelid: 0f69ab69-e605-4269-92b4-04c4e3d4ddb5 # found in tunnels dashboard under the tunnel name
+#          key: mlTWaYwsafKVwaLwWyAgd6fmftD52huHOwr0cZT- # api token with `Account.Cloudflare Tunnel:Read` https://dash.cloudflare.com/profile/api-tokens
+#- FWA-SPEEDTEST:
+#    - FWASERVER:
+#        icon: librespeed.png
+#        href: https://fwaserver-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://fwaserver-speedtest.laynesystems.com
+#    - FWASUPPORT01:
+#        icon: librespeed.png
+#        href: https://fwa01-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://fwa01-speedtest.laynesystems.com
+#    - FWASUPPORT02:
+#        icon: librespeed.png
+#        href: https://fwa02-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://fwa02-speedtest.laynesystems.com
+#    - FWASUPPORT03:
+#        icon: librespeed.png
+#        href: https://fwa03-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://fwa03-speedtest.laynesystems.com
+#    - FWASUPPORT04:
+#        icon: librespeed.png
+#        href: https://fwa04-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://fwa04-speedtest.laynesystems.com
+#    - FWASUPPORT05:
+#        icon: librespeed.png
+#        href: https://fwa05-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://fwa05-speedtest.laynesystems.com
+#    - FWASUPPORT06:
+#        icon: librespeed.png
+#        href: https://fwa06-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://fwa06-speedtest.laynesystems.com
+#   - FWASUPPORT07:
+#       icon: librespeed.png
+#        href: https://fwa07-speedtest.laynesystems.com
+#        description: Speedtest
+#        widget:
+#          type: speedtest
+#          url: http://fwa07-speedtest.laynesystems.com
+#- FWA-PORTAINER:
+#    - FWASERVER:
+#        icon: portainer.png
+#        href: https://fwaserver-portainer.laynesystems.com
+#        description: Docker Management
+#        container: portainer
+#        widget:
+#          type: portainer
+#          url: https://fwaserver-portainer.laynesystems.com
+#          env: 2
+#          key:
+#    - FWASUPPORT01:
+#        icon: portainer.png
+#        href: https://fwa01-portainer.laynesystems.com
+#        description: Docker Management
+#        container: portainer
+#        widget:
+#          type: portainer
+#          url: https://fwa01-portainer.laynesystems.com
+#          env: 2
+#          key: ptr_3RKiqrxumJhDjlmnmkHW3DksRXfreEk6lChmTMoaNYw=
+#    - FWASUPPORT02:
+#        icon: portainer.png
+#        href: https://fwa02-portainer.laynesystems.com
+#        description: Docker Management
+#        container: portainer
+#        widget:
+#          type: portainer
+#          url: https://fwa02-portainer.laynesystems.com
+#          env: 2
+#          key: ptr_2BjN4s+l3eZPc26eh7ZYsggl8z1CLEre/FZxqyMKaJY=
+#    - FWASUPPORT03:
+#        icon: portainer.png
+#        href: https://fwa03-portainer.laynesystems.com
+#        description: Docker Management
+#        container: portainer
+#        widget:
+#          type: portainer
+#          url: https://fwa03-portainer.laynesystems.com
+#          env: 2
+#          key: ptr_1GwzYs7+cTxq1iLnE1j/P5iz1yg+/Q2SDYaAC+b3Fm0=
+#    - FWASUPPORT04:
+#       icon: portainer.png
+#        href: https://fwa04-portainer.laynesystems.com
+#        description: Docker Management
+#        container: portainer
+#        widget:
+#          type: portainer
+#          url: https://fwa04-portainer.laynesystems.com
+#          env: 2
+#          key:
+#    - FWASUPPORT05:
+#        icon: portainer.png
+#        href: https://fwa05-portainer.laynesystems.com
+#        description: Docker Management
+#        container: portainer
+#        widget:
+#          type: portainer
+#          url: https://fwa05-portainer.laynesystems.com
+#          env: 2
+#          key:
+#    - FWASUPPORT06:
+#        icon: portainer.png
+#        href: https://fwa06-portainer.laynesystems.com
+#        description: Docker Management
+#        container: portainer
+#        widget:
+#          type: portainer
+#          url: https://fwa06-portainer.laynesystems.com
+#          env: 2
+#          key: ptr_8EOKANPNsSjdGy0V1d91ipk02S9YopE+aTfTd71XIqo=
+#    - FWASUPPORT07:
+#        icon: portainer.png
+#        href: https://fwa07-portainer.laynesystems.com
+#        description: Docker Management
+#        container: portainer
+#        widget:
+#          type: portainer
+#          url: https://fwa07-portainer.laynesystems.com
+#          env: 2
+#          key: ptr_cC1C+OuKjrdoCZ2WonnRBG2QcGMTOWMfwdxxxfPkqZs=
