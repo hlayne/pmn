@@ -13,7 +13,7 @@ services:
     volumes:
       - /automation/docker/firefox/config:/config
     ports:
-      - 127.0.0.1:3020:3000
+      - 3010:3000
     shm_size: "1gb"
     restart: unless-stopped
 networks: 
