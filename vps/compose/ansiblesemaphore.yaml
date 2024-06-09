@@ -38,6 +38,7 @@ services:
       - SEMAPHORE_ACCESS_KEY_ENCRYPTION=P1nzjCK2qYxiKYogJpK9X1cTav7dn/TLYt4MWXP/ynE=
       - ANSIBLE_HOST_KEY_CHECKING=false  # (optional) change to true if you want to enable host key checking
     volumes:
+      - /automation/docker/semaphore/tmp/:/tmp:rw
       - /automation/docker/semaphore/inventory/:/inventory:ro
       - /automation/docker/semaphore/authorized-keys/:/authorized-keys:ro
       - /automation/docker/semaphore/config/:/etc/semaphore:rw
