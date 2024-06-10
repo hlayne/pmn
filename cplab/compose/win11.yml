@@ -1,0 +1,31 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    environment:
+      VERSION: "win11"
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    stop_grace_period: 2m
+    volumes:
+      - /automation/docker/win11-1/data::/shared
+    environment:
+      - USERNAME: "wifiops"
+      - PASSWORD: "atll0vesWIFI"
+    labels:
+      - homepage.group=CPLAB
+      - homepage.name=win11
+      - homepage.icon=windows11.png
+      - homepage.href=http://cplab-win11.laynesystems.com/
+      - homepage.description=Windows
+    networks: 
+      - dockernet
+networks: 
+  dockernet: 
+    external: true
