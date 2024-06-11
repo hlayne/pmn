@@ -1,0 +1,20 @@
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /automation/docker/portainer/config:/data
+    ports:
+      - 9443:9443
+      - 9000:9000
+      - 8000:8000
+#    networks:
+#      - dockernet
+#networks:
+#  dockernet:
+#    external: true

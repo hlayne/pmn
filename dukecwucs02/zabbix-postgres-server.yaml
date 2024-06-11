@@ -1,0 +1,14 @@
+services:
+  zabbix-postgres-server:
+    image: postgres:latest
+    container_name: zabbix-postgres-server
+    environment:
+      - POSTGRES_USER=zabbix
+      - POSTGRES_PASSWORD=zabbix_pwd
+      - POSTGRES_DB=zabbix
+    restart: unless-stopped
+    networks:
+      - dockernet
+networks: 
+  dockernet: 
+    external: true

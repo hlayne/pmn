@@ -1,0 +1,15 @@
+services:
+  zabbix-snmptraps:
+    image: zabbix/zabbix-snmptraps:alpine-6.4-latest
+    container_name: zabbix-snmptraps
+    volumes:
+      - /zbx_instance/snmptraps:/var/lib/zabbix/snmptraps:rw
+      - /var/lib/zabbix/mibs:/usr/share/snmp/mibs:ro
+    restart: unless-stopped
+    ports: 
+      - 127.0.0.1:162:1162/udp
+    networks:
+      - dockernet
+networks: 
+  dockernet: 
+    external: true
