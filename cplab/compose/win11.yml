@@ -1,9 +1,11 @@
 services:
   windows:
     image: dockurr/windows
-    container_name: windows
+    container_name: win11-01
     environment:
       VERSION: "win11"
+      USERNAME: "wifiops"
+      PASSWORD: "atll0vesWIFI"
     devices:
       - /dev/kvm
     cap_add:
@@ -14,10 +16,7 @@ services:
       - 3389:3389/udp
     stop_grace_period: 2m
     volumes:
-      - /automation/docker/win11-1/data::/shared
-    environment:
-      - USERNAME: "wifiops"
-      - PASSWORD: "atll0vesWIFI"
+      - /automation/docker/win11-1/data:/shared
     labels:
       - homepage.group=CPLAB
       - homepage.name=win11
