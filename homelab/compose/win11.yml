@@ -21,7 +21,7 @@ services:
       - homepage.group=CPLAB
       - homepage.name=win11
       - homepage.icon=windows11.png
-      - homepage.href=http://cplab-win11.laynesystems.com/
+      - homepage.href=http://homelab-win1101.laynesystems.com/
       - homepage.description=Windows
     networks: 
       - dockernet
