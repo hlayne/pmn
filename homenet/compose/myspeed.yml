@@ -1,5 +1,16 @@
-
--p 5216:5216 
--v myspeed:/myspeed/data 
---restart=unless-stopped 
---name MySpeed germannewsmaker/myspeed
+services:
+  myspeed:
+    container_name: myspeed
+    image: germannewsmaker/myspeed
+    restart: unless-stopped
+    ports:
+      - 5216:5216
+    environment:
+      - TZ=Americas/New_York
+    volumes:
+      - /automation/docker/myspeed:/myspeed/data
+    networks: 
+      - dockernet
+networks: 
+  dockernet: 
+    external: true
