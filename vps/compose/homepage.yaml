@@ -1,6 +1,6 @@
 services:
   homepage:
-    image: ghcr.io/benphelps/homepage:latest
+    image: gethomepage/homepage:latest:latest
     container_name: homepage
     restart: unless-stopped
     ports:
