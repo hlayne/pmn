@@ -1,6 +1,6 @@
 services:
   homepage:
-    image: gethomepage/homepage:latest:latest
+    image: gethomepage/homepage:latest
     container_name: homepage
     restart: unless-stopped
     ports:
