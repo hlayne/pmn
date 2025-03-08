@@ -4,7 +4,7 @@ services:
     image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following line
     #image: mysql:8.0.27
-    container_name: wordpress-demo-db
+    container_name: wordpress-journal-db
     command: '--default-authentication-plugin=mysql_native_password'
     volumes:
       - /automation/docker/wordpress/journal/db_data:/var/lib/mysql
