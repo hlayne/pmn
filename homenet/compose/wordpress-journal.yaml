@@ -24,7 +24,7 @@ services:
     volumes:
       - /automation/docker/wordpress/journal/wp_data:/var/www/html
     ports:
-      - 8089:8089
+      - 8081:80
     container_name: wordpress-journal-main
     restart: always
     environment:
