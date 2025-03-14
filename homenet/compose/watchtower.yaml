@@ -15,7 +15,7 @@ services:
       WATCHTOWER_NOTIFICATION_EMAIL_TO: "hlayne@gmail.com" 
       WATCHTOWER_NOTIFICATION_EMAIL_SERVER: "smtp.gmail.com" 
       WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PORT: "587" 
-      WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD: "pmrkjpbloapcdkaf"
+      WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD: "yqykjoraehrmnhjr"
       WATCHTOWER_NOTIFICATION_EMAIL_DELAY: "30"
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock
