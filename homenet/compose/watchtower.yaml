@@ -7,7 +7,7 @@ services:
     environment: 
       WATCHTOWER_SCHEDULE: "0 0 1 * * *" 
       TZ: America/New_York 
-      WATCHTOWER_MONITOR_ONLY: "true"
+      #WATCHTOWER_MONITOR_ONLY: "true"
       WATCHTOWER_CLEANUP: "true" 
       WATCHTOWER_DEBUG: "true"      
       WATCHTOWER_NOTIFICATIONS: "email" 
