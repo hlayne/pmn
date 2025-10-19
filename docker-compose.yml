@@ -1,0 +1,54 @@
+version: '3.8'
+
+networks:
+  dockernet:
+    external: true
+
+services:
+  pmn-hub:
+    image: ghcr.io/hlayne/pmn:latest
+    container_name: pmn-hub
+    restart: unless-stopped
+    networks:
+      - dockernet
+    ports:
+      - "8180:8080"
+    environment:
+      - PMN_MODE=hub
+      - TZ=America/New_York
+      - LOG_LEVEL=info
+      - HUB_DATA_PATH=/app/data/hub
+    volumes:
+      - /automation/docker/pmn/data/hub:/app/data/hub
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  pmn-client:
+    image: ghcr.io/hlayne/pmn:latest
+    container_name: pmn-client
+    restart: unless-stopped
+    networks:
+      - dockernet
+    ports:
+      - "8190:8080"
+    environment:
+      - PMN_MODE=client
+      - PMN_HUB_HOST=pmn-hub
+      - TZ=America/New_York
+      - CLIENT_ID=node-001
+      - LOG_LEVEL=debug
+      - CLIENT_DATA_PATH=/app/data/client
+    volumes:
+      - /automation/docker/pmn/data/client:/app/data/client
+    depends_on:
+      - pmn-hub
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
